@@ -1,0 +1,13 @@
+<input type="text" placeholder="Nombre" [(ngModel)] = "restaurant.name" />
+<br><br>
+<input type="text" placeholder="Direccion" [(ngModel)] = "restaurant.address" />
+<br><br>
+<input type="number" placeholder="Estrellas" [(ngModel)] = "restaurant.stars" />
+<br><br>
+
+
+<input type="checkbox" [(ngModel)]="isMen" name="gender" /> Masculino
+<input type="checkbox" [(ngModel)]="isWomen" name="gender" /> Femenino
+<input type="checkbox" [(ngModel)]="isOther" name="gender" /> Otro
+
+<button (click)="onSubmit()" type="button">Registrar!</button>

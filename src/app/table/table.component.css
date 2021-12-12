@@ -1,0 +1,14 @@
+.table-header {
+  padding: 40px;
+  font-size: 18px; 
+ display: flex; 
+ align-items: center; 
+ justify-content: space-between; 
+} 
+ .table-row { 
+ padding: 40px; 
+ font-size: 15px; 
+ display: flex;
+  align-items: center;
+  justify-content: space-between; 
+}
