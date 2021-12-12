@@ -1,0 +1,109 @@
+<div style="display: flex;" class="forms">
+  <div class="autor">
+    <h2>Ingresar Autor</h2>
+    <p>Nombre</p>
+    <input type="text" placeholder="Nombre" [(ngModel)]="nombre" />
+    <p>Apellido</p>
+    <input type="text" placeholder="Apellido" [(ngModel)]="apellido" />
+    <p>Cedula</p>
+    <input type="text" placeholder="Cedula" [(ngModel)]="cedula" />
+    <p>Fecha de Nacimiento</p>
+    <input type="date" placeholder="nacimiento" [(ngModel)]="nacimiento" />
+    <br /><br />
+    <p>Genero Literario Principal</p>
+    <select type="text" [(ngModel)]="genero">
+      <option value="Romance y erótica">Romance y Erótica</option>
+      <option value="Crimen y Misterio">Crimen y misterio</option>
+      <option value="Religión y Motivación personal"
+        >Religión y Motivación personal</option
+      >
+      <option value="Ciencia ficción y Fantasía"
+        >Ciencia ficción y Fantasía</option
+      >
+      <option value="Horror">Horror</option>
+    </select>
+    <br /><br />
+    <button type="button" (click)="registerNewAutor()">Registrar Autor</button>
+  </div>
+
+  <div style="margin-left: 200px;" class="libro">
+    <h2>Ingresar Libro</h2>
+    <p>Nombre</p>
+    <input type="text" placeholder="Nombre" [(ngModel)]="lNombre" />
+    <p>Año de Creacion</p>
+    <input
+      type="number"
+      placeholder="Año de Creacion"
+      [(ngModel)]="lCreacion"
+    />
+    <p>Genero del Libro</p>
+    <select type="text" [(ngModel)]="lGenero">
+      <option value="Romance y erótica">Romance y Erótica</option>
+      <option value="Crimen y Misterio">Crimen y misterio</option>
+      <option value="Religión y Motivación personal"
+        >Religión y Motivación personal</option
+      >
+      <option value="Ciencia ficción y Fantasía"
+        >Ciencia ficción y Fantasía</option
+      >
+      <option value="Horror">Horror</option>
+    </select>
+    <p>Autor</p>
+    <select name="lAutor" [(ngModel)]="lAutor">
+      <option [value]="autor.nombre" *ngFor="let autor of autores"
+        >{{autor.nombre}} {{autor.apellido}}</option
+      >
+    </select>
+    <br /><br />
+    <button type="button" (click)="registerNewLibro()">Registrar libro</button>
+  </div>
+</div>
+
+<div class="tablas">
+  <div class="taoutor">
+    <p style="text-align: center;">Autores</p>
+    <div class="table-header">
+      <label>#</label>
+      <label>Nombre</label>
+      <label>Apellido</label>
+      <label>Cedula</label>
+      <label>Fecha de Nacimiento</label>
+      <label>Genero Literario Principal</label>
+      <label>Ver Libros del Autor</label>
+    </div>
+
+    <div class="table-row" *ngFor="let autor of autores; let i = index;">
+      <label>{{i+1}}</label>
+      <label>{{autor.nombre}}</label>
+      <label>{{autor.apellido}}</label>
+      <label>{{autor.cedula}}</label>
+      <label>{{autor.nacimiento}}</label>
+      <label>{{autor.genero}}</label>
+      <label
+        ><button type="button" (click)="mostrarLibros(i)">
+          Ver Detalle
+        </button></label
+      >
+    </div>
+  </div>
+  <div class="tlibro">
+    <p style="text-align: center;">
+      Libros del autor: {{this.autorSelect.nombre}}
+    </p>
+    <div class="table-header">
+      <label>#</label>
+      <label>Nombre</label>
+      <label>Año de Creacion</label>
+      <label>Genero</label>
+    </div>
+
+    <div class="table-row" *ngFor="let libro of librosAutor; let i = index;">
+      <label>{{i+1}}</label>
+      <label>{{libro.lNombre}}</label>
+      <label>{{libro.lCreacion}}</label>
+      <label>{{libro.lGenero}}</label>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
